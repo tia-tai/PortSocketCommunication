@@ -1,4 +1,7 @@
+import javax.print.attribute.standard.Media;
+import java.awt.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class Message implements Serializable {
     private static final long serialVersionUID = 1234567L;
@@ -10,18 +13,16 @@ public class Message implements Serializable {
     String text;
     String to;
     String from;
-    //Integer to;
-    //Integer from;
     //LocalDate timeStamp;
     //Media voice;
     //Image picture;
 
-    public Message(Integer version, Integer mode, String text, String to, String from) {
+    public Message(Integer version, Integer mode, String text, String from, String to) {
         this.version = version;
         this.mode = mode;
         this.text = text;
-        this.to = to;
         this.from = from;
+        this.to = to;
     }
 
     public Integer getVersion() {
@@ -70,8 +71,8 @@ public class Message implements Serializable {
                 "version=" + version +
                 ", mode=" + mode +
                 ", text='" + text + '\'' +
-                ", from='" + from + '\'' +
                 ", to='" + to + '\'' +
+                ", from='" + from + '\'' +
                 '}';
     }
 }
