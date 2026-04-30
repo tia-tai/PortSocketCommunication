@@ -1,7 +1,5 @@
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.Socket;
 import java.util.Scanner;
 
 public class CommunicationOut implements Runnable{
@@ -23,14 +21,14 @@ public class CommunicationOut implements Runnable{
                 String message = scanner.nextLine();
 
                 if (message.equals(".")) {
-                    Message newMessage = new Message(currentVersion, 3, message, "SERVER", "Tai");
+                    Message newMessage = new Message(currentVersion, 3, message, "Tai", "SERVER");
                     objOut.writeObject(newMessage);
                     objOut.flush();
                     completion = true;
                 } else {
                     System.out.println("To: ");
                     String to = scanner.nextLine();
-                    Message newMessage = new Message(currentVersion, 2, message, to, "Tai");
+                    Message newMessage = new Message(currentVersion, 2, message, "Tai", to);
                     objOut.writeObject(newMessage);
                     objOut.flush();
                 }
